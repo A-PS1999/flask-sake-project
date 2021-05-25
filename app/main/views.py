@@ -1,12 +1,17 @@
 import os
-from flask import render_template, redirect, url_for, abort
+from flask import render_template, redirect, url_for, abort, g
 from flask_login import login_required, current_user
-from flask_babel import _
+from flask_babel import _, get_locale
 from werkzeug.utils import secure_filename
 from app import create_app
 from . import main
 from .forms import NewBottleForm
 from ..models import User, Bottle
+
+
+@main.before_request
+def before_request():
+    g.locale = str(get_locale())
 
 
 @main.route('/')

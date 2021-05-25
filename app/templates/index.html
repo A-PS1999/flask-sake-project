@@ -15,7 +15,7 @@
 <section id="collection" class="text-center">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-9 mx-auto">
                 <br>
                 <h2 class="text-dark mb-4">{{ _('What sakes have you bought before?') }}</h2>
                 <p class="text-dark">
@@ -26,6 +26,70 @@
             </div>
         </div>
         <img class="img-fluid" src="{{ url_for('static',filename='images/sake1.png') }}" alt="">
+    </div>
+</section>
+<section id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                <br/>
+                <h2>{{ _('Features') }}</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5 mb-lg-0">
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <div class="d-flex h-100">
+                        <div class="w-100 text-center my-auto text-lg-left">
+                            <h4>{{ _('Manage your bottles') }}</h4>
+                            <p>
+                                {{ _('Add bottles to your collection and update them to reflect their status') }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid" src="{{ url_for('static',filename='images/collectionpic.jpg') }}" alt="">
+            </div>
+        </div>
+        <div>
+            <br>
+            <hr class="solid">
+            <br>
+        </div>
+        <div class="row justify-content-center mb-5 mb-lg-0">
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <div class="d-flex h-100">
+                        <div class="w-100 text-center my-auto text-lg-left">
+                            <h4>{{ _('Sake Gallery') }}</h4>
+                            <p>
+                                {{ _("The gallery provides a space to share your collection and browse
+                                other users' collections") }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid" src="{{ url_for('static',filename='images/gallerypic.jpg') }}" alt="">
+            </div>
+        </div>
+        <div>
+            <br>
+            <hr class="solid">
+            <br>
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="mx-auto text-center">
+                <a class="btn-lg btn-danger" href="{{ url_for('auth.register') }}"
+                   title="{{ _('Start your collection!') }}">{{ _('Start your collection!') }}
+                </a>
+            </div>
+        </div>
+        <br>
+        <br>
     </div>
 </section>
 {% endblock %}

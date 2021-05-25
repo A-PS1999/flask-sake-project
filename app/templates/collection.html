@@ -25,9 +25,10 @@
                         {% for bottle in bottles.items %}
                         <tbody>
                             <tr valign="top">
-                                <td class="top" align="center">
+                                <td class="top" width="127" align="center">
                                     {% if bottle.photo %}
-                                    <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
+                                    <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}"
+                                    width="250" height="250">
                                     {% else %}
                                     <img src="{{ url_for('static', filename='images/nihonshu.png') }}" alt="">
                                     {% endif %}
@@ -43,7 +44,9 @@
                                 </a>
                                     <br>
                                     {% if bottle.identifier %}
-                                    {{ _('Identifier:') }} {{ bottle.identifier }}
+                                        {{ _('Identifier:') }} {{ bottle.identifier }}
+                                    {% else %}
+                                        {{ _('Identifier: None specified') }}
                                     {% endif %}
                                     <br>
                                     {{ _('Brewed by:') }} {{ bottle.maker }}
