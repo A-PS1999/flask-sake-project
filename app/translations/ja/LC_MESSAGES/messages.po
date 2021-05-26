@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-03 17:08+0100\n"
+"POT-Creation-Date: 2021-05-26 09:28+0100\n"
 "PO-Revision-Date: 2021-05-03 12:50+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -288,7 +288,7 @@ msgstr "その他"
 msgid "Label"
 msgstr "ラベル"
 
-#: app/main/forms.py:20 app/templates/bottle.html:45
+#: app/main/forms.py:20 app/templates/bottle.html:47
 msgid "Identifier"
 msgstr "識別子"
 
@@ -348,7 +348,7 @@ msgstr "開栓後"
 msgid "Finished"
 msgstr "飲み終えた"
 
-#: app/main/forms.py:28 app/templates/bottle.html:61
+#: app/main/forms.py:28 app/templates/bottle.html:63
 msgid "Region"
 msgstr "地方"
 
@@ -356,7 +356,7 @@ msgstr "地方"
 msgid "Price"
 msgstr "値段"
 
-#: app/main/forms.py:30 app/templates/bottle.html:73
+#: app/main/forms.py:30 app/templates/bottle.html:75
 msgid "Notes"
 msgstr "注釈"
 
@@ -364,11 +364,11 @@ msgstr "注釈"
 msgid "Submit"
 msgstr "登録"
 
-#: app/main/views.py:52 app/templates/base.html:14 app/templates/navbar.html:43
+#: app/main/views.py:57 app/templates/base.html:14 app/templates/navbar.html:43
 msgid "Browse Collections"
 msgstr "他のコレクションを見る"
 
-#: app/main/views.py:100
+#: app/main/views.py:105
 msgid "New Bottle"
 msgstr "新しい瓶"
 
@@ -407,35 +407,35 @@ msgstr "サイトの作成者: %(name)s"
 msgid "Edit"
 msgstr "アップデート"
 
-#: app/templates/bottle.html:17
+#: app/templates/bottle.html:19
 msgid "Delete"
 msgstr "削除"
 
-#: app/templates/bottle.html:38
+#: app/templates/bottle.html:40
 msgid "Owner"
 msgstr "持ち主"
 
-#: app/templates/bottle.html:49
+#: app/templates/bottle.html:51
 msgid "No identifier provided."
 msgstr "識別子がありません。"
 
-#: app/templates/bottle.html:53
+#: app/templates/bottle.html:55
 msgid "Brewery"
 msgstr "酒造場"
 
-#: app/templates/bottle.html:57
+#: app/templates/bottle.html:59
 msgid "Type"
 msgstr "種類"
 
-#: app/templates/bottle.html:65
+#: app/templates/bottle.html:67
 msgid "Bottle Status"
 msgstr "瓶の状態"
 
-#: app/templates/bottle.html:69
+#: app/templates/bottle.html:71
 msgid "Price paid"
 msgstr "値段"
 
-#: app/templates/bottle.html:77
+#: app/templates/bottle.html:79
 msgid "Date added"
 msgstr "投稿日"
 
@@ -449,43 +449,48 @@ msgstr "%(username)sのコレクション"
 msgid "%(username)s's total collection: %(user_total)s bottle(s)"
 msgstr "%(username)sの瓶の数: %(user_total)s本"
 
-#: app/templates/collection.html:41
+#: app/templates/collection.html:42
 msgid "Owner:"
 msgstr "持ち主:"
 
-#: app/templates/collection.html:46
+#: app/templates/collection.html:47
 msgid "Identifier:"
 msgstr "識別子:"
 
 #: app/templates/collection.html:49
+#, fuzzy
+msgid "Identifier: None specified"
+msgstr "識別子がありません。"
+
+#: app/templates/collection.html:52
 msgid "Brewed by:"
 msgstr "酒造場:"
 
-#: app/templates/collection.html:51
+#: app/templates/collection.html:54
 msgid "Type:"
 msgstr "種類:"
 
-#: app/templates/collection.html:53
+#: app/templates/collection.html:56
 msgid "Status:"
 msgstr "状態:"
 
-#: app/templates/collection.html:55
+#: app/templates/collection.html:58
 msgid "Date added:"
 msgstr "投稿日"
 
-#: app/templates/collection.html:63 app/templates/new_bottle.html:13
+#: app/templates/collection.html:66 app/templates/new_bottle.html:13
 msgid "Add a new bottle"
 msgstr "新しい瓶を追加する"
 
-#: app/templates/collection.html:64
+#: app/templates/collection.html:67
 msgid "Add New Bottle"
 msgstr "新しい瓶を追加する"
 
-#: app/templates/collection.html:86
+#: app/templates/collection.html:89
 msgid "You haven't added any bottles to your collection!"
 msgstr "まだコレクションに何も追加されていません！"
 
-#: app/templates/collection.html:88
+#: app/templates/collection.html:91
 msgid "Add a bottle now"
 msgstr "今すぐ瓶を加える"
 
@@ -529,6 +534,32 @@ msgid ""
 "Add notes and keep a list so you can remember why you liked that one "
 "bottle!"
 msgstr "注釈を書いたり、リストを作ったりする事で、なぜあの日本酒が好きだったかを記録していきましょう！"
+
+#: app/templates/index.html:36
+msgid "Features"
+msgstr "機能"
+
+#: app/templates/index.html:44
+msgid "Manage your bottles"
+msgstr "瓶を記録する"
+
+#: app/templates/index.html:46
+msgid "Add bottles to your collection and update them to reflect their status"
+msgstr "瓶をコレクションに追加したり、状態を表すためにアップデートしたり出来ます"
+
+#: app/templates/index.html:66
+msgid "Sake Gallery"
+msgstr "日本酒ギャラリー"
+
+#: app/templates/index.html:68
+msgid ""
+"The gallery provides a space to share your collection and browse\n"
+"                                other users' collections"
+msgstr "ギャラリーでは自分のコレクションをシェアしたり、他のユーザーのコレクションを閲覧したりする事が出来ます"
+
+#: app/templates/index.html:87
+msgid "Start your collection!"
+msgstr "コレクションを始めましょう！"
 
 #: app/templates/navbar.html:8
 msgid "Welcome to Sake Collection!"

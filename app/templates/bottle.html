@@ -26,7 +26,7 @@
     <div class="row justify-content-start">
         <div class="col-sm-4">
             {% if bottle.photo %}
-            <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}">
+            <img src="{{ url_for('static', filename='uploads/' + bottle.photo) }}" width="350">
             {% else %}
             <img src="{{ url_for('static', filename='images/nihonshu.png') }}" alt="" width="250">
             {% endif %}
