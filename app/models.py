@@ -74,7 +74,7 @@ class Bottle(db.Model):
     maker = db.Column(db.String)
     status = db.Column(db.String)
     region = db.Column(db.String)
-    price = db.Column(db.String)
+    price = db.Column(db.Numeric)
     notes = db.Column(db.String)
     posted = db.Column(db.DateTime, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))

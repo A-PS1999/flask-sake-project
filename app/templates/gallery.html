@@ -5,7 +5,7 @@
     <div class="row align-items-center justify-content-between">
         <div class="col-auto"><h4>{{ _('%(total_num)s collection(s) available', total_num=total_num) }}</h4></div>
     </div>
-    {% if users %}
+    {% if users.items %}
     <ul class="list-group list-group-flush">
         {% for user in users.items %}
         <li class="list-group-item">
