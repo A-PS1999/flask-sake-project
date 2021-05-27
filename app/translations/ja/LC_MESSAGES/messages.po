@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-05-26 09:28+0100\n"
+"POT-Creation-Date: 2021-05-27 14:34+0100\n"
 "PO-Revision-Date: 2021-05-03 12:50+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ja\n"
@@ -288,7 +288,7 @@ msgstr "その他"
 msgid "Label"
 msgstr "ラベル"
 
-#: app/main/forms.py:20 app/templates/bottle.html:47
+#: app/main/forms.py:20 app/templates/bottle.html:54
 msgid "Identifier"
 msgstr "識別子"
 
@@ -348,7 +348,7 @@ msgstr "開栓後"
 msgid "Finished"
 msgstr "飲み終えた"
 
-#: app/main/forms.py:28 app/templates/bottle.html:63
+#: app/main/forms.py:28 app/templates/bottle.html:70
 msgid "Region"
 msgstr "地方"
 
@@ -356,7 +356,7 @@ msgstr "地方"
 msgid "Price"
 msgstr "値段"
 
-#: app/main/forms.py:30 app/templates/bottle.html:75
+#: app/main/forms.py:30 app/templates/bottle.html:82
 msgid "Notes"
 msgstr "注釈"
 
@@ -364,11 +364,11 @@ msgstr "注釈"
 msgid "Submit"
 msgstr "登録"
 
-#: app/main/views.py:57 app/templates/base.html:14 app/templates/navbar.html:43
+#: app/main/views.py:58 app/templates/base.html:14 app/templates/navbar.html:43
 msgid "Browse Collections"
 msgstr "他のコレクションを見る"
 
-#: app/main/views.py:105
+#: app/main/views.py:106
 msgid "New Bottle"
 msgstr "新しい瓶"
 
@@ -411,31 +411,35 @@ msgstr "アップデート"
 msgid "Delete"
 msgstr "削除"
 
-#: app/templates/bottle.html:40
+#: app/templates/bottle.html:27
+msgid "Clone"
+msgstr "コピー"
+
+#: app/templates/bottle.html:47
 msgid "Owner"
 msgstr "持ち主"
 
-#: app/templates/bottle.html:51
+#: app/templates/bottle.html:58
 msgid "No identifier provided."
 msgstr "識別子がありません。"
 
-#: app/templates/bottle.html:55
+#: app/templates/bottle.html:62
 msgid "Brewery"
 msgstr "酒造場"
 
-#: app/templates/bottle.html:59
+#: app/templates/bottle.html:66
 msgid "Type"
 msgstr "種類"
 
-#: app/templates/bottle.html:67
+#: app/templates/bottle.html:74
 msgid "Bottle Status"
 msgstr "瓶の状態"
 
-#: app/templates/bottle.html:71
+#: app/templates/bottle.html:78
 msgid "Price paid"
 msgstr "値段"
 
-#: app/templates/bottle.html:79
+#: app/templates/bottle.html:86
 msgid "Date added"
 msgstr "投稿日"
 
@@ -458,7 +462,6 @@ msgid "Identifier:"
 msgstr "識別子:"
 
 #: app/templates/collection.html:49
-#, fuzzy
 msgid "Identifier: None specified"
 msgstr "識別子がありません。"
 
