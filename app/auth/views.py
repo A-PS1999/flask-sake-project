@@ -30,8 +30,10 @@ def register():
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     login_form = LoginForm()
+
     if login_form.validate_on_submit():
         user = User.query.filter_by(username=login_form.username.data).first()
+
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user, login_form.remember_me.data)
             return redirect(url_for("main.collection",
@@ -60,7 +62,9 @@ def request_reset_password():
             token = user.get_reset_token()
             send_email("Sake Collection - Reset your password", "email/password_reset_mail",
                        user.email, user=user, token=token)
-        return redirect(url_for('auth.login'))
+            return redirect(url_for('auth.login'))
+        else:
+            flash("No account registered with that email exists.")
 
     return render_template("auth/reset_pass_request.html",
                            request_form=request_form,

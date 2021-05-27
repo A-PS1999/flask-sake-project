@@ -1,6 +1,8 @@
 import os
+from .. import db
 from datetime import datetime
-from flask import render_template, redirect, url_for, abort, g
+from flask import render_template, redirect, url_for, abort, g, flash
+from sqlalchemy.exc import DataError, InvalidRequestError
 from flask_login import login_required, current_user
 from flask_babel import _, get_locale
 from werkzeug.utils import secure_filename
@@ -64,40 +66,43 @@ def update_collection():
     bottle_form = NewBottleForm()
 
     if bottle_form.validate_on_submit():
+        try:
+            if bottle_form.photo.data:
+                f = bottle_form.photo.data
+                fname = secure_filename(f.filename)
+                f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
 
-        if bottle_form.photo.data:
-            f = bottle_form.photo.data
-            fname = secure_filename(f.filename)
-            f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
+                new_bottle = Bottle(owner=current_user.username,
+                                    label=bottle_form.label.data,
+                                    identifier=bottle_form.identifier.data,
+                                    photo=fname,
+                                    category=bottle_form.category.data,
+                                    maker=bottle_form.maker.data,
+                                    status=bottle_form.status.data,
+                                    region=bottle_form.region.data,
+                                    price=bottle_form.price.data,
+                                    notes=bottle_form.notes.data,
+                                    user_id=current_user.id
+                                    )
+                new_bottle.save_bottle()
 
-            new_bottle = Bottle(owner=current_user.username,
-                                label=bottle_form.label.data,
-                                identifier=bottle_form.identifier.data,
-                                photo=fname,
-                                category=bottle_form.category.data,
-                                maker=bottle_form.maker.data,
-                                status=bottle_form.status.data,
-                                region=bottle_form.region.data,
-                                price=bottle_form.price.data,
-                                notes=bottle_form.notes.data,
-                                user_id=current_user.id
-                                )
-            new_bottle.save_bottle()
-
-        else:
-            new_bottle = Bottle(owner=current_user.username,
-                                label=bottle_form.label.data,
-                                identifier=bottle_form.identifier.data,
-                                photo=None,
-                                category=bottle_form.category.data,
-                                maker=bottle_form.maker.data,
-                                status=bottle_form.status.data,
-                                region=bottle_form.region.data,
-                                price=bottle_form.price.data,
-                                notes=bottle_form.notes.data,
-                                user_id=current_user.id
-                                )
-            new_bottle.save_bottle()
+            else:
+                new_bottle = Bottle(owner=current_user.username,
+                                    label=bottle_form.label.data,
+                                    identifier=bottle_form.identifier.data,
+                                    photo=None,
+                                    category=bottle_form.category.data,
+                                    maker=bottle_form.maker.data,
+                                    status=bottle_form.status.data,
+                                    region=bottle_form.region.data,
+                                    price=bottle_form.price.data,
+                                    notes=bottle_form.notes.data,
+                                    user_id=current_user.id
+                                    )
+                new_bottle.save_bottle()
+        except DataError or InvalidRequestError:
+            db.session.rollback()
+            flash(_("A data error occurred. Please check that 'Price' only contains integers and decimals."))
 
         return redirect(url_for('main.collection',
                                 name=current_user.username))

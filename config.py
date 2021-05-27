@@ -22,4 +22,6 @@ class Config(object):
 
     LANGUAGES = ['en', 'ja']
 
+    TOASTR_POSITION_CLASS = 'toast-bottom-right'
+
     UPLOADS_FOLDER = basedir + "\\app\\static\\uploads"

@@ -33,11 +33,6 @@
                 {{ _('Forgot your password?') }}<a href="{{ url_for('auth.request_reset_password') }}">
                                                 {{ _('Reset it') }}</a>
             </p>
-            {% for field, errors in login_form.errors.items() %}
-            <div class="alert alert-error">
-            {{ login_form[field].label }}: {{ ', '.join(errors) }}
-            </div>
-            {% endfor %}
         </div>
     </div>
 </main>
