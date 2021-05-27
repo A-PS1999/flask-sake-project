@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import render_template, redirect, url_for, abort, g
 from flask_login import login_required, current_user
 from flask_babel import _, get_locale
@@ -127,19 +128,28 @@ def edit_bottle(id):
 
     if edit_form.validate_on_submit():
 
-        if edit_form.photo.data:
+        if edit_form.photo.data and not isinstance(edit_form.photo.data, str):
             f = edit_form.photo.data
             fname = secure_filename(f.filename)
             f.save(os.path.join(create_app().config['UPLOADS_FOLDER'], fname))
 
             edit_form.populate_obj(bottle_id)
             bottle_id.photo = fname
-            bottle_id.save_bottle()
 
         else:
+            # clone bottles feature
+            if bottle_id.user_id != current_user.id:
+                clone_bottle = bottle_id
+                clone_bottle.owner = current_user.username
+                clone_bottle.user_id = current_user.id
+                clone_bottle.posted = datetime.utcnow()
+
+                edit_form.populate_obj(clone_bottle)
+                clone_bottle.copy_bottle()
 
             edit_form.populate_obj(bottle_id)
-            bottle_id.save_bottle()
+
+        bottle_id.save_bottle()
 
         return redirect(url_for('main.collection',
                                 name=current_user.username))

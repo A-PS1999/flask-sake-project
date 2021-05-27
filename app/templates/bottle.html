@@ -20,6 +20,13 @@
                     </form>
                 </div>
             </div>
+            {% else %}
+            <div class="d-flex">
+                <div class="container">
+                    <a class="button btn alert-dark" href="{{ url_for('main.edit_bottle', id=bottle.id) }}">
+                        {{ _('Clone') }}</a>
+                </div>
+            </div>
             {% endif %}
         </div>
     </div>

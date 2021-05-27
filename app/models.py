@@ -3,6 +3,7 @@ from . import db
 from flask_login import UserMixin
 from . import login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy.orm.session import make_transient
 from datetime import datetime
 from time import time
 import jwt
@@ -79,6 +80,12 @@ class Bottle(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def save_bottle(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def copy_bottle(self):
+        make_transient(self)
+        self.id = None
         db.session.add(self)
         db.session.commit()
 
