@@ -11,6 +11,7 @@ from .. import db
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     reg_form = RegistrationForm()
+
     if reg_form.validate_on_submit():
         user = User(username=reg_form.username.data, password=reg_form.password.data,
                     email=reg_form.email.data)
@@ -18,7 +19,8 @@ def register():
         db.session.commit()
 
         send_email("Welcome to Sake Collection!", "email/welcome_msg",
-                   user.email, user=user)
+                    user.email, user=user)
+
         return redirect(url_for("auth.login"))
 
     title = _("Register")
@@ -64,7 +66,7 @@ def request_reset_password():
                        user.email, user=user, token=token)
             return redirect(url_for('auth.login'))
         else:
-            flash("No account registered with that email exists.")
+            flash(_("No account registered with that email exists."))
 
     return render_template("auth/reset_pass_request.html",
                            request_form=request_form,
