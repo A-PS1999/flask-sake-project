@@ -11,7 +11,8 @@ class Config(object):
 
     SECRET_KEY = STRING_RANDOM
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://sam:dev7331@localhost/sakelist'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'postgresql+psycopg2://sam:dev7331@localhost/sakelist'
 
     MAIL_SERVER = "smtp.gmail.com"
     MAIL_PORT = 587

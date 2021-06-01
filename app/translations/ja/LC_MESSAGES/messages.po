@@ -376,7 +376,7 @@ msgstr "他のコレクションを見る"
 msgid ""
 "A data error occurred. Please check that 'Price' only contains integers "
 "and decimals."
-msgstr "エラーが発生しました。「値段」の入力には整数と小数点しか入ってない事を確認してください。"
+msgstr "エラーが発生しました。「値段」には整数と小数点しか入ってない事を確認してください。"
 
 #: app/main/views.py:111
 msgid "New Bottle"

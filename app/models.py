@@ -23,6 +23,10 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(255))
     bottles = db.relationship('Bottle', backref='user', lazy='dynamic')
 
+    def save_user(self):
+        db.session.add(self)
+        db.session.commit()
+
     @property
     def password(self):
         raise AttributeError("You cannot see the password attribute")

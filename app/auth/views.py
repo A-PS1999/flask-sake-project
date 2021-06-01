@@ -15,8 +15,7 @@ def register():
     if reg_form.validate_on_submit():
         user = User(username=reg_form.username.data, password=reg_form.password.data,
                     email=reg_form.email.data)
-        db.session.add(user)
-        db.session.commit()
+        user.save_user()
 
         send_email("Welcome to Sake Collection!", "email/welcome_msg",
                     user.email, user=user)
@@ -38,6 +37,7 @@ def login():
 
         if user is not None and user.verify_password(login_form.password.data):
             login_user(user, login_form.remember_me.data)
+
             return redirect(url_for("main.collection",
                                     name=user.username))
         else:
