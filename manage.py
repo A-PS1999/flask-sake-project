@@ -11,9 +11,6 @@ manager.add_command("server", Server)
 migrate = Migrate(app, db, compare_type=True)
 manager.add_command("db", MigrateCommand)
 
-CompileMessages = cli.compile()
-manager.add_command(("compile", CompileMessages))
-
 
 @manager.shell
 def create_shell_context():
