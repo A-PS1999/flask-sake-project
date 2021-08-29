@@ -1,1 +1,1 @@
-web: gunicorn manage:app migrate:python manage.py db migrate --workers 1
+web: gunicorn manage:app migrate:python manage.py db migrate CompileMessages:python manage.py compile --workers 1
