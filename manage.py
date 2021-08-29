@@ -1,5 +1,4 @@
 from app import create_app, db
-from app import cli
 from app.models import User, Bottle
 from flask_script import Manager, Server
 from flask_migrate import Migrate, MigrateCommand
