@@ -1,7 +1,7 @@
 <h1 align="center">Sake Collection</h1>
 <h2 align="center">flask-sake-project</h2>
 
-### 🏠 Visit the site: https://flask-sake-project.herokuapp.com/
+### 🏠 ~~Visit the site: https://flask-sake-project.herokuapp.com/~~ Currently not hosted
 
 ### Description
 This application was created for users to create a record of their
